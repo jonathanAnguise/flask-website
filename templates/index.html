@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Jonathan Anguise</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/my_style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="fr">FR</a>
+      <a class="navbar-brand" href="es">ES</a>
+      <a class="navbar-brand" href="en">EN</a>
+      </div> 
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#who">WHO</a></li>
+        <li><a href="#what">WHAT</a></li>
+        <li><a href="#resume">RESUME</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" id="who">
+  <h3 class="margin">Who Am I?</h3>
+  <img src="{{ url_for('static', filename='pictures/profile.png') }}" class="img-responsive img-circle margin" style="display:inline" alt="Jonathan photo" width="350" height="350">
+  <h3>Embedded systems engineer</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center" id="what">
+  <h3 class="margin">What Am I?</h3>
+  <p>I am methodical and curious.</p>
+  <p>I am always on the alert for new developments and technological monitoring.</p>
+  <p>I like to face constant challenges.</p>
+  <p>I am looking for a job that allows me to combine passion, imagination and creativity.</p>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center" id="resume">    
+  <h3 class="margin">My resume</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+  <a href="cv_en.pdf" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-th-list"></span> Here is my resume in english
+  </a>
+    </div>
+    <div class="col-sm-4"> 
+  <a href="cv_es.pdf" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-th-list"></span> Aquí está mi currículum en español
+  </a>
+    </div>
+    <div class="col-sm-4"> 
+  <a href="cv_fr.pdf" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-th-list"></span> Ici mon CV en français
+  </a>
+    </div>
+  </div>
+</div>
+<!-- Fourth Container (Grid) -->
+<div class="container-fluid bg-2 text-center" id="Personal project">
+  <h3 class="margin">Personal project</h3>
+  <a href="personal_project/" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-magnet"></span> Personal project folder
+  </a>
+</div>
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Jonathan Anguise</p> 
+<!-- Thanks W3 :) visit it : www.w3schools.com -->
+<!-- Thanks glyphicons ! visit it : http://glyphicons.com/-->
+<!-- Thanks https://giphy.com/ ! -->
+</footer>
+
+</body>
+</html>
