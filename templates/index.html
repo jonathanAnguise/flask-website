@@ -28,9 +28,10 @@
       </div> 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#who">WHO</a></li>
-        <li><a href="#what">WHAT</a></li>
-        <li><a href="#resume">RESUME</a></li>
+        {% if language == "fr" %}{% elif language == "es" %}{% else %}{% endif %}
+        <li><a href="#who">{% if language == "fr" %}QUI{% elif language == "es" %}QUIÉN{% else %}WHO{% endif %}</a></li>
+        <li><a href="#what">{% if language == "fr" %}QUE{% elif language == "es" %}QUE{% else %}WHAT{% endif %}</a></li>
+        <li><a href="#resume">{% if language == "fr" %}CV{% elif language == "es" %}CV{% else %}RESUME{% endif %}</a></li>
       </ul>
     </div>
   </div>
@@ -38,36 +39,50 @@
 
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center" id="who">
-  <h3 class="margin">Who Am I?</h3>
+  <h3 class="margin">{% if language == "fr" %}Qui suis-je ?{% elif language == "es" %}¿Quién soy?{% else %}Who Am I?{% endif %}</h3>
   <img src="{{ url_for('static', filename='pictures/profile.png') }}" class="img-responsive img-circle margin" style="display:inline" alt="Jonathan photo" width="350" height="350">
-  <h3>Embedded systems engineer</h3>
+  <h3>{% if language == "fr" %}Ingénieur en systèmes embarqués{% elif language == "es" %}Ingeniero en Sistemas Integrados{% else %}Embedded systems engineer{% endif %}</h3>
 </div>
 
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center" id="what">
+  {% if language == "fr" %}
+  <h3 class="margin">Que suis-je?</h3>
+  <p>Je suis méthodique et curieux.</p>
+  <p>Je suis toujours à l'écoute des nouvelles technologies.</p>
+  <p>J'aime constemment faire face à de nouveaux challenges.</p>
+  <p>Je suis à la recherche d'un emploi qui me permet de combiner passion, imagination et créativité</p>
+  {% elif language == "es" %}
+  <h3 class="margin">Lo que soy</h3>
+  <p> Soy metódico y curioso. </p>
+  <p> Siempre estoy alerta a nuevos desarrollos y monitoreo tecnológico. </p>
+  <p> Me gusta enfrentar desafíos constantes. </p>
+  <p> Estoy buscando un trabajo que me permita combinar pasión, imaginación y creatividad. </p>
+  {% else %}
   <h3 class="margin">What Am I?</h3>
   <p>I am methodical and curious.</p>
   <p>I am always on the alert for new developments and technological monitoring.</p>
   <p>I like to face constant challenges.</p>
   <p>I am looking for a job that allows me to combine passion, imagination and creativity.</p>
+  {% endif %}
 </div>
 
 <!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center" id="resume">    
-  <h3 class="margin">My resume</h3><br>
+<div class="container-fluid bg-3 text-center" id="resume">
+  <h3 class="margin">{% if language == "fr" %}Mon CV{% elif language == "es" %}Mi Currículum{% else %}My resume{% endif %}</h3><br>
   <div class="row">
     <div class="col-sm-4">
-  <a href="cv_en.pdf" class="btn btn-default btn-lg">
+  <a href="{{url_for('static', filename='data/cv_en.pdf')}}" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-th-list"></span> Here is my resume in english
   </a>
     </div>
-    <div class="col-sm-4"> 
-  <a href="cv_es.pdf" class="btn btn-default btn-lg">
+    <div class="col-sm-4">
+  <a href="{{url_for('static', filename='data/cv_es.pdf')}}" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-th-list"></span> Aquí está mi currículum en español
   </a>
     </div>
-    <div class="col-sm-4"> 
-  <a href="cv_fr.pdf" class="btn btn-default btn-lg">
+    <div class="col-sm-4">
+  <a href="{{url_for('static', filename='data/cv_fr.pdf')}}" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-th-list"></span> Ici mon CV en français
   </a>
     </div>
@@ -75,9 +90,9 @@
 </div>
 <!-- Fourth Container (Grid) -->
 <div class="container-fluid bg-2 text-center" id="Personal project">
-  <h3 class="margin">Personal project</h3>
-  <a href="personal_project/" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-magnet"></span> Personal project folder
+  <h3 class="margin">{% if language == "fr" %}Projets personnels{% elif language == "es" %}Proyectos personales{% else %}Personal project{% endif %}</h3>
+  <a href="{{url_for('perso_proj',default_language=language)}}" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-magnet"></span>{% if language == "fr" %}Projets personnels{% elif language == "es" %}Proyectos personales{% else %}Personal project folder{% endif %}
   </a>
 </div>
 <!-- Footer -->
