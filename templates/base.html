@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/my_style.css') }}">
+</head>
+
+<body>
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Jonathan Anguise</p>
+<!-- Thanks W3 :) visit it : www.w3schools.com -->
+<!-- Thanks glyphicons ! visit it : http://glyphicons.com/-->
+<!-- Thanks https://giphy.com/ ! -->
+</footer>
+
+</body>
+</html>
