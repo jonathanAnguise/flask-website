@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+from requests import get
 
 SUPPORTED_LANGUAGES = ["en", "fr", "es"]
+GITHUB_API = "https://api.github.com/users/jonathanAnguise/repos"
 
 app = Flask(__name__)
 
@@ -18,8 +20,15 @@ def hello(default_language='en'):
 
 @app.route('/<default_language>/personal_project')
 def perso_proj(default_language='en'):
-    return f"<h1>{default_language} -- Page to do</h1>"
+    my_projects = get_projects_from_github()
+    return render_template("personal_proj.html",
+                           language=default_language,
+                           my_projects=my_projects,
+                           len_my_project=len(my_projects)
+                           )
 
+def get_projects_from_github():
+    return get(GITHUB_API).json()
 
 if __name__ == '__main__':
     app.run(debug=True)
