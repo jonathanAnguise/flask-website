@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="fr">FR</a>
       <a class="navbar-brand" href="es">ES</a>
       <a class="navbar-brand" href="en">EN</a>
-      </div> 
+      </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         {% if language == "fr" %}{% elif language == "es" %}{% else %}{% endif %}
@@ -30,10 +30,11 @@
 <!-- Container -->
 <!--Change color for each container, first is bg-1 style until bg-4 and go back to bg-1 style, cf css file-->
 <div class="container-fluid bg-{{(i%4 + 1)}} text-center" id="who">
-  <h3 class="margin">{% if language == "fr" %}Qui suis-je ?{% elif language == "es" %}¿Quién soy?{% else %}Who Am I?{% endif %}</h3>
-  <img src="{{ url_for('static', filename='pictures/profile.png') }}" class="img-responsive img-circle margin" style="display:inline" alt="Jonathan photo" width="350" height="350">
-  <h4>{{(i%4 + 1)}}</h4>
-  <h3>{% if language == "fr" %}Ingénieur en systèmes embarqués{% elif language == "es" %}Ingeniero en Sistemas Integrados{% else %}Embedded systems engineer{% endif %}</h3>
+  <h3><a href="{{ my_projects[i]['html_url'] }}"> {{ my_projects[i]['name'] }}</a></h3>
+  {% if my_projects[i]['fork'] == True %}
+    <h3> 🚧 Project forked 🚧 </h3>
+  {% endif%}
+  <p>{{ my_projects[i]['description'] }}</p>
 </div>
 {%endfor%}
 
