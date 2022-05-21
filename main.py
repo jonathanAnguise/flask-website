@@ -23,7 +23,6 @@ def hello(default_language='en'):
 @app.route('/<default_language>/personal_project')
 def perso_proj(default_language='en'):
     my_projects = get_projects_from_github()
-    # if my_projects
     try:
         return render_template("personal_proj.html",
                            language=default_language,
