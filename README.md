@@ -1,6 +1,6 @@
 # flask-website
 
-##Presentation
+## Presentation
 Project of my resume accessible here:
 [my website](https://jonathan-anguise.herokuapp.com/)
 ---
